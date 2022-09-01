@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Upgrade Arrow
+  m_Shader: {fileID: -6465566751694194690, guid: c6fcfa3637e2c4642aea31e0f1fac8a0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3300
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_46296e961c5343a9a63ee6802c058462:
+        m_Texture: {fileID: 2800000, guid: 6e82654013529d64084a7b8b372837f7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_55696c5133914899b1354ae822f7a62b_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b0415137f2460ab40814664c59fd7f10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_e7e90ec1556042818be937ea004702ba: -1
+    m_Colors:
+    - Color_227ec37a5b764885b82b26a000ac65ba: {r: 1, g: 1, b: 1, a: 0}
+    - Color_4614edc51b2c479b85f5dc48b22771fc: {r: 0.049001455, g: 1, b: 0, a: 0}
+    - Vector2_b4d6e8143e1c40b0becb14eb2aad2683: {r: 1, g: 6, b: 0, a: 0}
+    - _Tiles: {r: 1, g: 6, b: 0, a: 0}
+  m_BuildTextureStacks: []
