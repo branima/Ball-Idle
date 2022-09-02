@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Tabtale.TTPlugins;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour
     public GameObject nextLevelPanel;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        TTPCore.Setup();
+    }
+
     void Start()
     {
         levelNumber = SceneManager.GetActiveScene().buildIndex + 1;
