@@ -24,18 +24,8 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Play(gameObject, "Background");
-    }
-
     public void Play(GameObject go, string name)
     {
-        //UnityEngine.Debug.Log(go.name);
-        //string callingFuncName = new StackFrame(1).GetMethod().Name;
-        //UnityEngine.Debug.Log(callingFuncName);
-
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
         AudioSource goAs = go.GetComponent<AudioSource>();

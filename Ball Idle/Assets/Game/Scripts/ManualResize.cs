@@ -7,12 +7,6 @@ public class ManualResize : MonoBehaviour
 
     public GameManager gameManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -23,11 +17,5 @@ public class ManualResize : MonoBehaviour
             gameManager.LevelUpCapacity(1.3f);
             gameManager.LevelUpSpeed(1.1f);
         }
-    }
-
-    public void UpgradeSize()
-    {
-
-
     }
 }

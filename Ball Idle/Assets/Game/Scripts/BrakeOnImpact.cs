@@ -11,8 +11,5 @@ public class BrakeOnImpact : MonoBehaviour
         Invoke("NextLevelPrompt", 1.5f);
     }
 
-    void NextLevelPrompt()
-    {
-        GameObject.FindObjectOfType<GameManager>().EnableNextLevelPanel();
-    }
+    void NextLevelPrompt() => GameObject.FindObjectOfType<GameManager>().EnableNextLevelPanel();
 }

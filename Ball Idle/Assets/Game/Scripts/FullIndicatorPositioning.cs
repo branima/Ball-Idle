@@ -11,10 +11,7 @@ public class FullIndicatorPositioning : MonoBehaviour
     float lerpTime;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        player = transform.parent;
-    }
+    void Start() => player = transform.parent;
 
     void OnEnable()
     {

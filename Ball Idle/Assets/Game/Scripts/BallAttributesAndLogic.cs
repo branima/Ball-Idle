@@ -8,20 +8,5 @@ public class BallAttributesAndLogic : MonoBehaviour
     [SerializeField]
     int rewardMoney;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public int GetRewardMoney()
-    {
-        return rewardMoney;
-    }
+    public int GetRewardMoney() => rewardMoney;
 }

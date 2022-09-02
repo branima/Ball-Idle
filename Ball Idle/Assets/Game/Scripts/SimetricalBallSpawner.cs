@@ -9,7 +9,7 @@ public class SimetricalBallSpawner : MonoBehaviour
     public int bigWaves;
     public int midWaves;
     public int smallWaves;
-    public float elevation = 1f; ///15.5f
+    public float elevation = 1f; 
 
     public GameObject bigBall;
     public GameObject mediumBall;

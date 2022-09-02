@@ -45,32 +45,13 @@ public class LaunchBalls : MonoBehaviour
                     TravelToTarget ttt = ball.gameObject.AddComponent<TravelToTarget>();
                     ttt.SetTarget(pipeStartPoint);
                 }
-                /*
-                PathFollower pathScript = ball.gameObject.AddComponent<PathFollower>();
-                pathScript.speed = ballSpeed;
-                pathScript.pathCreator = path;
-                pathScript.endOfPathInstruction = EndOfPathInstruction.Stop;
-                */
             }
         }
     }
-    ///QUEUE
+    
     void OnTriggerEnter(Collider other)
     {
         if (!other.name.Contains("Player") && other.GetComponent<TravelToTarget>() == null)
             ballQueue.Enqueue(other.transform);
-        /*
-        if(other.name.Contains("Player")){
-            foreach (var item in collection)
-            {
-                
-            }
-        }
-        */
-    }
-
-    void OnTriggerExit()
-    {
-
     }
 }

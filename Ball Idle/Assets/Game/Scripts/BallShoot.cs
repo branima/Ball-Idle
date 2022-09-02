@@ -40,14 +40,14 @@ public class BallShoot : MonoBehaviour
             Rigidbody ballRB = ball.GetComponent<Rigidbody>();
             ballRB.velocity = Vector3.zero;
             ballRB.AddForce((transform.parent.forward * 3f + Vector3.up) * shootForceModifier, ForceMode.VelocityChange);
-            //ball.transform.GetChild(3).gameObject.SetActive(false);
             Invoke("AddDrag", 0.75f);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name.Contains("Player"))
+        
+        if (other.name.Contains("Player") && !other.isTrigger)
         {
             progressBar.SetActive(false);
             foreach (Transform item in other.transform)
@@ -58,13 +58,9 @@ public class BallShoot : MonoBehaviour
             ball = other.transform;
             Rigidbody ballRB = ball.GetComponent<Rigidbody>();
             ballRB.constraints = RigidbodyConstraints.None;
-            //ball.GetComponent<Rigidbody>().AddForce((Vector3.up + Vector3.forward) * shootForceModifier, ForceMode.Impulse);
             travel = true;
         }
     }
 
-    void AddDrag()
-    {
-        ball.gameObject.AddComponent<BrakeOnImpact>();
-    }
+    void AddDrag() => ball.gameObject.AddComponent<BrakeOnImpact>();
 }

@@ -8,7 +8,6 @@ public class BallDetacher : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         other.GetComponent<PathFollower>().enabled = false;
-        //other.GetComponent<Rigidbody>().useGravity = true;
         other.GetComponent<Rigidbody>().AddForce(Vector3.down * 30f, ForceMode.VelocityChange);
     }
 }

@@ -8,18 +8,18 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public static int numberOfLevels = 7;
+    public int numberOfLevels = 7;
     int levelNumber;
     public TextMeshProUGUI levelNumberText;
 
     public Transform player;
     Rigidbody playerRB;
+    PlayerMovement playerMovementScript;
     public CameraFollow cameraFollowScript;
-
-    public TextMeshProUGUI moneyCountVisual;
 
     [SerializeField]
     int money;
+    public TextMeshProUGUI moneyCountVisual;
 
     int speedLevel;
     int sizeLevel;
@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI capacityLevelText;
 
     public Material uiGrayscaleMat;
-    public Material defaultUIMat;
 
     public Transform levelUpParticlesObject;
     ParticleSystem[] levelUpParticles;
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour
     Vector3 newSize;
     float lerpTime;
 
-    public GameObject smallerHole;
+    public GameObject smallerHoleMesh;
     public GameObject smallerHoleRing;
     public GameObject biggerHoleRing;
 
@@ -57,10 +56,10 @@ public class GameManager : MonoBehaviour
         capacityLevel = 1;
 
         newSize = Vector3.zero;
-
         lerpTime = 0f;
 
         playerRB = player.GetComponent<Rigidbody>();
+        playerMovementScript = player.GetComponent<PlayerMovement>();
 
         levelNumberText.text = levelNumber.ToString();
 
@@ -95,18 +94,19 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public int GetMoney()
-    {
-        return money;
-    }
+    public int GetMoney() => money;
 
-    public void LevelUpSpeed()
+    void ActivateLevelUpParticles()
     {
         levelUpParticlesObject.position = player.position;
         foreach (ParticleSystem item in levelUpParticles)
             item.Play();
+    }
+
+    public void LevelUpSpeed()
+    {
+        ActivateLevelUpParticles();
         speedLevel++;
-        PlayerMovement playerMovementScript = player.GetComponent<PlayerMovement>();
         playerMovementScript.maxSpeed *= 1.1f;
         playerMovementScript.movementSpeedModifier *= 1.1f;
         speedLevelText.text = speedLevel.ToString();
@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
     public void LevelUpSpeed(float modif)
     {
         speedLevel++;
-        PlayerMovement playerMovementScript = player.GetComponent<PlayerMovement>();
         playerMovementScript.maxSpeed = (int)(playerMovementScript.maxSpeed * modif);
         playerMovementScript.movementSpeedModifier = (int)(playerMovementScript.movementSpeedModifier * modif);
         speedLevelText.text = speedLevel.ToString();
@@ -123,51 +122,40 @@ public class GameManager : MonoBehaviour
 
     public void LevelUpSize()
     {
-        foreach (ParticleSystem item in levelUpParticles)
-            item.Play();
+        ActivateLevelUpParticles();
         sizeLevel++;
         lerpTime = 0f;
         newSize = player.transform.localScale * 1.12f;
-        //player.transform.localScale = player.transform.localScale * 1.225f;
         playerRB.mass *= 3.69f;
         playerRB.constraints = RigidbodyConstraints.None;
-        //Invoke("FreezeY", 0.1f);        
         sizeLevelText.text = sizeLevel.ToString();
 
-        if (sizeLevel >= 4 && smallerHole != null && smallerHoleRing != null && biggerHoleRing != null)
+        if (sizeLevel >= 4 && smallerHoleMesh != null && smallerHoleRing != null && biggerHoleRing != null)
         {
-            smallerHole.SetActive(false);
+            smallerHoleMesh.SetActive(false);
             smallerHoleRing.SetActive(false);
             biggerHoleRing.SetActive(true);
             player.GetChild(0).GetComponent<IndicatorLogic>().target = biggerHoleRing.transform;
         }
-
-        levelUpParticlesObject.localScale = player.localScale;
-        levelUpParticlesObject.position = player.position;
     }
 
     public void LevelUpCapacity()
     {
-        levelUpParticlesObject.position = player.position;
-        foreach (ParticleSystem item in levelUpParticles)
-            item.Play();
+        ActivateLevelUpParticles();
         capacityLevel++;
-        player.GetComponent<PlayerMovement>().maxStackSize += 6;
+        playerMovementScript.maxStackSize += 6;
         capacityLevelText.text = capacityLevel.ToString();
     }
 
     public void LevelUpCapacity(float modif)
     {
         capacityLevel++;
-        player.GetComponent<PlayerMovement>().maxStackSize = (int)(player.GetComponent<PlayerMovement>().maxStackSize * modif);
+        playerMovementScript.maxStackSize = (int)(playerMovementScript.maxStackSize * modif);
         capacityLevelText.text = capacityLevel.ToString();
     }
 
-    void FreezeY()
-    {
-        playerRB.constraints = RigidbodyConstraints.FreezePositionY;
-        //playerRB.constraints = RigidbodyConstraints.FreezeRotation;
-    }
+    void FreezeY() => playerRB.constraints = RigidbodyConstraints.FreezePositionY;
+
 
     public void EnableUpgradeIndicator()
     {
@@ -192,44 +180,21 @@ public class GameManager : MonoBehaviour
         player.GetChild(2).gameObject.SetActive(false);
     }
 
-    public int GetSizeLevel()
-    {
-        return sizeLevel;
-    }
+    public int GetSizeLevel() => sizeLevel;
+    public int GetSpeedLevel() => speedLevel;
+    public int GetCapacityLevel() => capacityLevel;
 
-    public int GetSpeedLevel()
-    {
-        return speedLevel;
-    }
+    public void EnableNextLevelPanel() => nextLevelPanel.SetActive(true);
+    public void NextLevel() => LoadLevel((SceneManager.GetActiveScene().buildIndex + 1) % numberOfLevels);
+    void LoadLevel(int levelIndex) => SceneManager.LoadScene(levelIndex);
 
-    public int GetCapacityLevel()
-    {
-        return capacityLevel;
-    }
-
-    public void EnableNextLevelPanel()
-    {
-        nextLevelPanel.SetActive(true);
-    }
-
-    public void NextLevel()
-    {
-        LoadLevel((SceneManager.GetActiveScene().buildIndex + 1) % numberOfLevels);
-    }
-
-    void LoadLevel(int levelIndex)
-    {
-        //if (levelIndex == 0)
-        //    levelIndex++;
-        SceneManager.LoadScene(levelIndex);
-    }
 
     public void SetGrayscaleSpeed(bool x)
     {
         if (x)
             speedLevelText.GetComponentInParent<Image>().material = uiGrayscaleMat;
         else
-            speedLevelText.GetComponentInParent<Image>().material = defaultUIMat;
+            speedLevelText.GetComponentInParent<Image>().material = null;
     }
 
     public void SetGrayscaleSize(bool x)
@@ -237,7 +202,7 @@ public class GameManager : MonoBehaviour
         if (x)
             sizeLevelText.GetComponentInParent<Image>().material = uiGrayscaleMat;
         else
-            sizeLevelText.GetComponentInParent<Image>().material = defaultUIMat;
+            sizeLevelText.GetComponentInParent<Image>().material = null;
     }
 
     public void SetGrayscaleCapacity(bool x)
@@ -245,11 +210,8 @@ public class GameManager : MonoBehaviour
         if (x)
             capacityLevelText.GetComponentInParent<Image>().material = uiGrayscaleMat;
         else
-            capacityLevelText.GetComponentInParent<Image>().material = defaultUIMat;
+            capacityLevelText.GetComponentInParent<Image>().material = null;
     }
 
-    public bool IsFullyUpgraded()
-    {
-        return capacityLevel == 7 && speedLevel == 7 && sizeLevel == 7;
-    }
+    public bool IsFullyUpgraded() => (capacityLevel == 7 && speedLevel == 7 && sizeLevel == 7);
 }

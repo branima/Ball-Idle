@@ -33,12 +33,12 @@ public class Sell : MonoBehaviour
             playerMovementScript.RemoveFromStack(other.transform);
             int rewardMoney = other.GetComponent<BallAttributesAndLogic>().GetRewardMoney();
             gameManager.AddMoney(rewardMoney);
+            
             GameObject moneyInstance = moneyTextInstances.Dequeue();
             moneyInstance.GetComponent<TextMeshPro>().text = "+$" + rewardMoney.ToString();
             moneyInstance.transform.position = other.transform.position + Vector3.up + Vector3.forward;
             moneyInstance.SetActive(true);
             moneyTextInstances.Enqueue(moneyInstance);
-            //Destroy(other.gameObject);
         }
     }
 }

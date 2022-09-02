@@ -6,7 +6,6 @@ public class DestroyBalls : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        //Destroy(other.gameObject);
         if (!other.name.Contains("Player"))
             other.gameObject.SetActive(false);
     }

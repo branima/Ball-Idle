@@ -20,9 +20,9 @@ public class WaitingForCollection : MonoBehaviour
     {
         //Debug.Log(gameManager + ", " + player);
         playerMovementScript = player.GetComponent<PlayerMovement>();
-        Invoke("FreezeY", 1.5f);
         playerRB = player.GetComponent<Rigidbody>();
         rb = GetComponent<Rigidbody>();
+        Invoke("FreezeY", 1.5f);
 
         if (transform.name.Contains("Small"))
             requiredLevelForCollection = 1;
@@ -31,25 +31,6 @@ public class WaitingForCollection : MonoBehaviour
         else
             requiredLevelForCollection = 7;
     }
-
-
-    void Update()
-    {
-        //if (transform.position.y > 2.95f)                 ///WALL AD
-        //    rb.constraints = RigidbodyConstraints.None;
-    }
-
-    /*
-    void OnCollisionEnter(Collision other)
-    {
-        if (playerMovementScript.isStackFree() && playerMovementScript.stack.Contains(other.transform) && gameManager.GetSizeLevel() >= requiredLevelForCollection)
-        {
-            GetComponent<MoveToPlayer>().enabled = true;
-            playerMovementScript.AddToStack(transform);
-            Destroy(this);
-        }
-    }
-    */
 
     void OnTriggerEnter(Collider other)
     {
@@ -65,8 +46,5 @@ public class WaitingForCollection : MonoBehaviour
     }
 
 
-    void FreezeY()
-    {
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-    }
+    void FreezeY() => rb.constraints = RigidbodyConstraints.FreezePositionY;
 }

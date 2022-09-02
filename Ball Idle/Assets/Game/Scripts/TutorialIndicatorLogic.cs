@@ -5,26 +5,23 @@ using UnityEngine;
 public class TutorialIndicatorLogic : MonoBehaviour
 {
     public Transform target;
-    public float distanceFromPlayer;
     public float turnOffDistance;
     Transform player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = transform.parent;
-    }
+    public Material arrowMat;
 
-    // Update is called once per frame
+    // Start is called before the first frame update
+    void Start() => player = transform.parent;
+
     void Update()
     {
-
         if (Vector3.Distance(target.position, player.position) < turnOffDistance)
             Destroy(gameObject);
 
-        Vector3 direction = (target.position - player.position).normalized;
-        transform.position = player.position + direction * (player.localScale.x) + Vector3.up * 0.75f;
-        //transform.position = player.position + direction * (player.localScale.x) + Vector3.up * 1.5f;
-        transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+        Vector3 newPos = new Vector3((player.position.x + target.position.x) / 2f, player.position.y, (player.position.z + target.position.z) / 2f);
+        transform.position = newPos;
+        transform.LookAt(new Vector3(target.position.x, player.position.y, target.position.z));
+        transform.localScale = new Vector3(1f, 1f, Vector3.Distance(player.position, target.position));
+        arrowMat.SetVector("_Tiles", new Vector4(1, Vector3.Distance(player.position, target.position), 0, 0));
     }
 }

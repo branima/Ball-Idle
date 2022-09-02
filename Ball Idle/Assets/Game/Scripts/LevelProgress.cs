@@ -14,10 +14,7 @@ public class LevelProgress : MonoBehaviour
     public GameObject levelEndRamp;
     public Animator gateAnimator;
 
-    void Start()
-    {
-        startChildCount = transform.childCount;
-    }
+    void Start() => startChildCount = transform.childCount;
 
     void Update()
     {
@@ -31,6 +28,7 @@ public class LevelProgress : MonoBehaviour
             gateAnimator.SetTrigger("gateOpenTrigger");
             levelEndRamp.SetActive(true);
             player.GetChild(3).gameObject.SetActive(true);
+            //player.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 }
