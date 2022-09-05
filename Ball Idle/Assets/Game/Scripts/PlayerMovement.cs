@@ -53,4 +53,15 @@ public class PlayerMovement : MonoBehaviour
     public bool isStackFree() => maxStackSize > stack.Count;
 
     void FreezeY() => rb.constraints = RigidbodyConstraints.FreezePositionY;
+
+    public void StackClear()
+    {
+        foreach (Transform item in stack)
+        {
+            if (item.gameObject.activeSelf && item != transform)
+                item.GetComponent<MoveToPlayer>().enabled = false;
+        }
+
+        stack.Clear();
+    }
 }

@@ -32,6 +32,14 @@ public class WaitingForCollection : MonoBehaviour
             requiredLevelForCollection = 7;
     }
 
+    /*
+    void Update()
+    {
+        if (transform.position.y > 2.95f)                 ///WALL AD
+            rb.constraints = RigidbodyConstraints.None;
+    }
+    */
+
     void OnTriggerEnter(Collider other)
     {
         if (playerMovementScript.isStackFree() && playerMovementScript.stack.Contains(other.transform) && gameManager.GetSizeLevel() >= requiredLevelForCollection)
@@ -44,7 +52,6 @@ public class WaitingForCollection : MonoBehaviour
             Destroy(this);
         }
     }
-
 
     void FreezeY() => rb.constraints = RigidbodyConstraints.FreezePositionY;
 }

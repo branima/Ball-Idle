@@ -28,7 +28,6 @@ public class LevelProgress : MonoBehaviour
             gateAnimator.SetTrigger("gateOpenTrigger");
             levelEndRamp.SetActive(true);
             player.GetChild(3).gameObject.SetActive(true);
-            //player.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
 }

@@ -46,13 +46,16 @@ public class BallShoot : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.name.Contains("Player") && !other.isTrigger)
         {
             progressBar.SetActive(false);
-            foreach (Transform item in other.transform)
-                Destroy(item.gameObject);
-            other.GetComponent<PlayerMovement>().enabled = false;
+            //foreach (Transform item in other.transform)
+            //    Destroy(item.gameObject);
+            other.GetComponent<CapsuleCollider>().enabled = false;
+            PlayerMovement playerMovementScript = other.GetComponent<PlayerMovement>();
+            playerMovementScript.StackClear();
+            playerMovementScript.enabled = false;
 
             target = new Vector3(transform.position.x, other.transform.position.y, transform.position.z);
             ball = other.transform;
