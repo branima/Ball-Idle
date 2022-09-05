@@ -136,6 +136,18 @@ public class GameManager : MonoBehaviour
             smallerHoleRing.SetActive(false);
             biggerHoleRing.SetActive(true);
             player.GetChild(0).GetComponent<IndicatorLogic>().target = biggerHoleRing.transform;
+            smallerHoleRing = null;
+        }
+
+        if (smallerHoleRing != null)
+        {
+            BoxCollider boxCollider = smallerHoleRing.GetComponent<BoxCollider>();
+            boxCollider.size = boxCollider.size * 1.1f;
+        }
+        else if (smallerHoleRing != null)
+        {
+            BoxCollider boxCollider = biggerHoleRing.GetComponent<BoxCollider>();
+            boxCollider.size = boxCollider.size * 1.1f;
         }
     }
 

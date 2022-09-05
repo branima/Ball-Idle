@@ -16,11 +16,16 @@ public class BallShoot : MonoBehaviour
 
     public GameObject progressBar;
 
+    bool charge;
+    Rigidbody ballRB;
+    public float torqueModifier;
+
     // Start is called before the first frame update
     void Start()
     {
         lerpTime = 0f;
         travel = false;
+        charge = false;
     }
 
     // Update is called once per frame
@@ -29,7 +34,7 @@ public class BallShoot : MonoBehaviour
         if (!travel)
             return;
 
-        lerpTime += Time.deltaTime * 3f;
+        lerpTime += Time.deltaTime * 1f;
         ball.position = Vector3.Lerp(ball.position, target, lerpTime);
         if (Vector3.Distance(ball.position, target) < 0.1f)
         {
@@ -37,11 +42,23 @@ public class BallShoot : MonoBehaviour
             ball.LookAt(pipe);
             if (walls != null)
                 walls.SetActive(false);
-            Rigidbody ballRB = ball.GetComponent<Rigidbody>();
+
+            ballRB = ball.GetComponent<Rigidbody>();
             ballRB.velocity = Vector3.zero;
-            ballRB.AddForce((transform.parent.forward * 3f + Vector3.up) * shootForceModifier, ForceMode.VelocityChange);
-            Invoke("AddDrag", 0.75f);
+            ballRB.constraints = RigidbodyConstraints.FreezePosition;
+            charge = true;
+            //ballRB.AddForce((transform.parent.forward * 3f + Vector3.up) * shootForceModifier, ForceMode.VelocityChange);
+            Invoke("LaunchBall", 1f);
+            //Invoke("AddDrag", 0.75f);
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (!charge)
+            return;
+
+        ballRB.AddTorque(Vector3.right * 1000f * torqueModifier * Time.fixedDeltaTime, ForceMode.Acceleration);
     }
 
     void OnTriggerEnter(Collider other)
@@ -63,6 +80,14 @@ public class BallShoot : MonoBehaviour
             ballRB.constraints = RigidbodyConstraints.None;
             travel = true;
         }
+    }
+
+    void LaunchBall()
+    {
+        charge = false;
+        ballRB.constraints = RigidbodyConstraints.None;
+        ballRB.AddForce((transform.parent.forward * 3f + Vector3.up) * shootForceModifier, ForceMode.VelocityChange);
+        Invoke("AddDrag", 0.75f);
     }
 
     void AddDrag() => ball.gameObject.AddComponent<BrakeOnImpact>();

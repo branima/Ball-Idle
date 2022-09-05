@@ -56679,19 +56679,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa6ab418f499b14f93cf91c18833029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfLevels: 7
   levelNumberText: {fileID: 2058732801}
   player: {fileID: 84309111}
   cameraFollowScript: {fileID: 1687258583}
-  moneyCountVisual: {fileID: 2058732800}
   money: 20000
+  moneyCountVisual: {fileID: 2058732800}
   speedLevelText: {fileID: 2058732799}
   sizeLevelText: {fileID: 2058732798}
   capacityLevelText: {fileID: 2058732796}
   uiGrayscaleMat: {fileID: 2100000, guid: 197519eb5850a7b428f1fff33b1a62bc, type: 2}
-  defaultUIMat: {fileID: 0}
   levelUpParticlesObject: {fileID: 1240844672}
-  smallerHole: {fileID: 0}
-  smallerHoleRing: {fileID: 0}
+  smallerHoleMesh: {fileID: 0}
+  smallerHoleRing: {fileID: 1824651823}
   biggerHoleRing: {fileID: 0}
   nextLevelPanel: {fileID: 2058732802}
 --- !u!4 &1353570096
@@ -78705,6 +78705,11 @@ PrefabInstance:
 --- !u!4 &1824651822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2780049288351983209, guid: 2c536691f101f054da6d2f367566f0aa, type: 3}
+  m_PrefabInstance: {fileID: 1824651821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1824651823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2780049288351983210, guid: 2c536691f101f054da6d2f367566f0aa, type: 3}
   m_PrefabInstance: {fileID: 1824651821}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1827868425

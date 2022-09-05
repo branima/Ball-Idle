@@ -8,7 +8,7 @@ public class TravelToTarget : MonoBehaviour
     Transform target;
     Rigidbody rb;
 
-    float movementSpeedModifier = 12.5f;
+    float movementSpeedModifier = 15f; ///12.5
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class TravelToTarget : MonoBehaviour
 
         Vector3 direction = (target.position - transform.position + 2 * Vector3.down).normalized;
         rb.MovePosition(transform.position + direction * Time.deltaTime * movementSpeedModifier);
-        if (Vector3.Distance(target.position, transform.position) < 2f)
+        if (Vector3.Distance(target.position, transform.position) < 1.5f)
         {
             rb.AddForce(direction * Time.fixedDeltaTime * movementSpeedModifier * 25f, ForceMode.VelocityChange);
             target = null;

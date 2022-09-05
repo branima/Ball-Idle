@@ -1722,7 +1722,7 @@ PrefabInstance:
       objectReference: {fileID: 1353570095}
     - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: maxStackSize
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: joystickScript
@@ -1782,7 +1782,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fd56343871254784991f410043c5026f, type: 2}
     - target: {fileID: 7599620608832438971, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: m_Radius
-      value: 4.75
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 7599620608832438971, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: m_Enabled
@@ -36355,7 +36355,7 @@ MonoBehaviour:
   uiGrayscaleMat: {fileID: 2100000, guid: 197519eb5850a7b428f1fff33b1a62bc, type: 2}
   levelUpParticlesObject: {fileID: 1240844672}
   smallerHoleMesh: {fileID: 0}
-  smallerHoleRing: {fileID: 0}
+  smallerHoleRing: {fileID: 1824651823}
   biggerHoleRing: {fileID: 0}
   nextLevelPanel: {fileID: 2058732802}
 --- !u!4 &1353570096
@@ -49405,6 +49405,11 @@ PrefabInstance:
 --- !u!4 &1824651822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2780049288351983209, guid: 2c536691f101f054da6d2f367566f0aa, type: 3}
+  m_PrefabInstance: {fileID: 1824651821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1824651823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2780049288351983210, guid: 2c536691f101f054da6d2f367566f0aa, type: 3}
   m_PrefabInstance: {fileID: 1824651821}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1826470642
