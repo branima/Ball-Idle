@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
             BoxCollider boxCollider = smallerHoleRing.GetComponent<BoxCollider>();
             boxCollider.size = boxCollider.size * 1.1f;
         }
-        else if (smallerHoleRing != null)
+        else if (biggerHoleRing != null)
         {
             BoxCollider boxCollider = biggerHoleRing.GetComponent<BoxCollider>();
             boxCollider.size = boxCollider.size * 1.1f;

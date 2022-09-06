@@ -48,7 +48,8 @@ public class WaitingForCollection : MonoBehaviour
             GetComponent<MoveToPlayer>().enabled = true;
             playerMovementScript.AddToStack(transform);
             HapticFeedbackController.TriggerHaptics(HapticTypes.MediumImpact);
-            audioManager.Play(gameObject, "pop2");
+            if (audioManager != null)
+                audioManager.Play(gameObject, "pop2");
             Destroy(this);
         }
     }

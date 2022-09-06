@@ -4958,7 +4958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1075095d4f9e35468492dcbe59d8791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootForceModifier: 20
+  shootForceModifier: 11.3
   pipe: {fileID: 1309289953287133011}
   walls: {fileID: 0}
   progressBar: {fileID: 0}

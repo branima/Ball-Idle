@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 421802121231481143}
   - component: {fileID: 179386773861802240}
   - component: {fileID: 6067192799332740996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TutorialArrow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7214211765473304305}
   - component: {fileID: 3275967980830929697}
   - component: {fileID: 345092004874471527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SellArrowAnimated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 6437177962496476213}
   - component: {fileID: 5526086338886769589}
   - component: {fileID: 6431600864761997080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TutorialArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 2414091019789299014}
   - component: {fileID: 8656568664518272471}
   - component: {fileID: 8986280753307019713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arrowupgrade1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 2923459292697791481}
   - component: {fileID: 671371513494628316}
   - component: {fileID: 5117779179867849350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arrowsell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7599620607436397202}
   - component: {fileID: 7599620607436397206}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Upgrade Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7599620607539453550}
   - component: {fileID: 1779621733552616486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Next Level Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 7599620607700910652}
   - component: {fileID: 7599620607700910642}
   - component: {fileID: 7599620607700910643}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arrowsell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 7599620607728273378}
   - component: {fileID: 7599620607728273377}
   - component: {fileID: 7599620607728273376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Full Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7599620608370807401}
   - component: {fileID: 7599620608370807400}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Full Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 7599620608832438944}
   - component: {fileID: 7599620608832438945}
   - component: {fileID: 7599620608832438971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7599620609048576942}
   - component: {fileID: 7599620609048576930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sell Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6879709559767957423}
   - component: {fileID: 811907320681365934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tutorial Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 4924943827629748220}
   - component: {fileID: 5495109683409618975}
   - component: {fileID: 754899404245979134}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SellArrowAnimated (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
