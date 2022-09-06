@@ -23,9 +23,19 @@ public class AudioManager : MonoBehaviour
     }
 
     public Sound[] sounds;
+    bool isEnabled;
+
+    void Start()
+    {
+        isEnabled = true;
+    }
 
     public void Play(GameObject go, string name)
     {
+        Debug.Log(isEnabled);
+        if (!isEnabled)
+            return;
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
         AudioSource goAs = go.GetComponent<AudioSource>();
@@ -45,6 +55,9 @@ public class AudioManager : MonoBehaviour
 
     public void Stop(GameObject go, string name)
     {
+        if (!isEnabled)
+            return;
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s.source != null)
             s.source.Stop();
@@ -57,6 +70,10 @@ public class AudioManager : MonoBehaviour
             return s.source.isPlaying;
         return false;
     }
+
+    public bool IsEnabled() => isEnabled;
+    public void EnableSound() => isEnabled = true;
+    public void DisableSound() => isEnabled = false;
 }
 
 

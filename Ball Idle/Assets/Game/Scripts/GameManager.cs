@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
+    public GameObject settingsMenu;
+    public AudioManager audioManager;
+
     public int numberOfLevels = 7;
     int levelNumber;
     public TextMeshProUGUI levelNumberText;
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
     public GameObject biggerHoleRing;
 
     public GameObject nextLevelPanel;
+    public GameObject hapticsObject;
 
     // Start is called before the first frame update
     void Start()
@@ -226,4 +230,23 @@ public class GameManager : MonoBehaviour
     }
 
     public bool IsFullyUpgraded() => (capacityLevel == 7 && speedLevel == 7 && sizeLevel == 7);
+
+    public void OpenSettingsMenu() => settingsMenu.SetActive(true);
+    public void CloseSettingsMenu() => settingsMenu.SetActive(false);
+
+    public void SoundToggle()
+    {
+        if (!audioManager.IsEnabled())
+            audioManager.EnableSound();
+        else
+            audioManager.DisableSound();
+    }
+
+    public void VibrationToggle()
+    {
+        if (!hapticsObject.activeSelf)
+            hapticsObject.SetActive(true);
+        else
+            hapticsObject.SetActive(false);
+    }
 }
