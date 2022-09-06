@@ -8,7 +8,7 @@ public class TravelToTarget : MonoBehaviour
     Transform target;
     Rigidbody rb;
 
-    float movementSpeedModifier = 15f; ///12.5
+    float movementSpeedModifier = 18f; ///15
 
     void Awake()
     {

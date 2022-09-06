@@ -1717,6 +1717,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
+      propertyPath: maxSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1353570095}

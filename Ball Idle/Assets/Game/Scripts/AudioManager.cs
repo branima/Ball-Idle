@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
 
     public void Play(GameObject go, string name)
     {
-        Debug.Log(isEnabled);
         if (!isEnabled)
             return;
 

@@ -21,7 +21,7 @@ public class Sell : MonoBehaviour
         moneyTextInstances = new Queue<GameObject>();
         for (int i = 0; i < 80; i++)
         {
-            GameObject moneyInstance = Instantiate(moneyTextPrefab, transform.position, moneyTextPrefab.transform.rotation);
+            GameObject moneyInstance = Instantiate(moneyTextPrefab, transform.position + new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f)), moneyTextPrefab.transform.rotation);
             moneyTextInstances.Enqueue(moneyInstance);
         }
     }
@@ -33,7 +33,7 @@ public class Sell : MonoBehaviour
             playerMovementScript.RemoveFromStack(other.transform);
             int rewardMoney = other.GetComponent<BallAttributesAndLogic>().GetRewardMoney();
             gameManager.AddMoney(rewardMoney);
-            
+
             GameObject moneyInstance = moneyTextInstances.Dequeue();
             moneyInstance.GetComponent<TextMeshPro>().text = "+$" + rewardMoney.ToString();
             moneyInstance.transform.position = other.transform.position + Vector3.up + Vector3.forward;
