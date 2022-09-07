@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2780049288351983209}
   - component: {fileID: 2780049288351983213}
   - component: {fileID: 2780049288351983214}
-  - component: {fileID: 2780049288351983215}
   - component: {fileID: 2780049288351983208}
+  - component: {fileID: 3468376371896859735}
   m_Layer: 0
   m_Name: SmallerHoleRing
   m_TagString: Untagged
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2780049288351983215
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780049288351983210}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03818839, y: 0.03572972, z: 0.277978}
-  m_Center: {x: -0.0005157024, y: -0.000112002774, z: -0.022779232}
 --- !u!114 &2780049288351983208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +97,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   player: {fileID: 0}
+  audioManager: {fileID: 0}
+--- !u!135 &3468376371896859735
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780049288351983210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.022736646
+  m_Center: {x: -0.0005157026, y: -0.00011200224, z: 0.024395071}

@@ -145,13 +145,13 @@ public class GameManager : MonoBehaviour
 
         if (smallerHoleRing != null)
         {
-            BoxCollider boxCollider = smallerHoleRing.GetComponent<BoxCollider>();
-            boxCollider.size = boxCollider.size * 1.1f;
+            SphereCollider collider = smallerHoleRing.GetComponent<SphereCollider>();
+            collider.radius = collider.radius * 1.1f;
         }
         else if (biggerHoleRing != null)
         {
-            BoxCollider boxCollider = biggerHoleRing.GetComponent<BoxCollider>();
-            boxCollider.size = boxCollider.size * 1.1f;
+            SphereCollider collider = biggerHoleRing.GetComponent<SphereCollider>();
+            collider.radius = collider.radius * 1.1f;
         }
     }
 
