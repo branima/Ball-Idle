@@ -28,9 +28,9 @@ public class LimitlessUpgrade : MonoBehaviour
     void Start()
     {
         upgradeUIEnabled = false;
-        speedCostVisual.text = speedCost.ToString();
-        sizeCostVisual.text = sizeCost.ToString();
-        capacityCostVisual.text = capacityCost.ToString();
+        speedCostVisual.text = "$" + speedCost.ToString();
+        sizeCostVisual.text = "$" + sizeCost.ToString();
+        capacityCostVisual.text = "$" + capacityCost.ToString();
     }
 
     // Update is called once per frame
@@ -87,11 +87,11 @@ public class LimitlessUpgrade : MonoBehaviour
             speedCost = (int)(speedCost * costConstantModifierWave1);
 
             if (speedCost < 1000)
-                speedCostVisual.text = speedCost.ToString();
+                speedCostVisual.text = "$" + speedCost.ToString();
             else if (speedCost < 1000000)
-                speedCostVisual.text = (speedCost * 1f / 1000).ToString("n2") + "K";
+                speedCostVisual.text = "$" + (speedCost * 1f / 1000).ToString("n2") + "K";
             else
-                speedCostVisual.text = (speedCost * 1f / 1000000).ToString("n2") + "M";
+                speedCostVisual.text = "$" + (speedCost * 1f / 1000000).ToString("n2") + "M";
 
             gameManager.LevelUpSpeed(1.25f);
         }
@@ -108,11 +108,11 @@ public class LimitlessUpgrade : MonoBehaviour
             sizeCost = (int)(sizeCost * costConstantModifierWave1);
 
             if (sizeCost < 1000)
-                sizeCostVisual.text = sizeCost.ToString();
+                sizeCostVisual.text = "$" + sizeCost.ToString();
             else if (sizeCost < 1000000)
-                sizeCostVisual.text = (sizeCost * 1f / 1000).ToString("n2") + "K";
+                sizeCostVisual.text = "$" + (sizeCost * 1f / 1000).ToString("n2") + "K";
             else
-                sizeCostVisual.text = (sizeCost * 1f / 1000000).ToString("n2") + "M";
+                sizeCostVisual.text = "$" + (sizeCost * 1f / 1000000).ToString("n2") + "M";
 
             gameManager.LevelUpSize();
         }
@@ -129,11 +129,11 @@ public class LimitlessUpgrade : MonoBehaviour
             capacityCost = (int)(capacityCost * costConstantModifierWave1);
 
             if (capacityCost < 1000)
-                capacityCostVisual.text = capacityCost.ToString();
+                capacityCostVisual.text = "$" + capacityCost.ToString();
             else if (capacityCost < 1000000)
-                capacityCostVisual.text = (capacityCost * 1f / 1000).ToString("n2") + "K";
+                capacityCostVisual.text = "$" + (capacityCost * 1f / 1000).ToString("n2") + "K";
             else
-                capacityCostVisual.text = (capacityCost * 1f / 1000000).ToString("n2") + "M";
+                capacityCostVisual.text = "$" + (capacityCost * 1f / 1000000).ToString("n2") + "M";
 
             gameManager.LevelUpCapacity(1.5f);
         }

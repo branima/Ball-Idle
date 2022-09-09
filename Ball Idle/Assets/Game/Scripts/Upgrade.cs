@@ -29,9 +29,9 @@ public class Upgrade : MonoBehaviour
     void Start()
     {
         upgradeUIEnabled = false;
-        speedCostVisual.text = speedCost.ToString();
-        sizeCostVisual.text = sizeCost.ToString();
-        capacityCostVisual.text = capacityCost.ToString();
+        speedCostVisual.text = "$" + speedCost.ToString();
+        sizeCostVisual.text = "$" + sizeCost.ToString();
+        capacityCostVisual.text = "$" + capacityCost.ToString();
 
         firstUpgradeWaveCleared = false;
     }
@@ -104,11 +104,11 @@ public class Upgrade : MonoBehaviour
                     speedCost = (int)(speedCost * costConstantModifierWave2);
 
                 if (speedCost < 1000)
-                    speedCostVisual.text = speedCost.ToString();
+                    speedCostVisual.text = "$" + speedCost.ToString();
                 else if (speedCost < 1000000)
-                    speedCostVisual.text = (speedCost * 1f / 1000).ToString("n2") + "K";
+                    speedCostVisual.text = "$" + (speedCost * 1f / 1000).ToString("n2") + "K";
                 else
-                    speedCostVisual.text = (speedCost * 1f / 1000000).ToString("n2") + "M";
+                    speedCostVisual.text = "$" + (speedCost * 1f / 1000000).ToString("n2") + "M";
 
                 gameManager.LevelUpSpeed();
                 if (gameManager.GetSpeedLevel() == 4)
@@ -118,14 +118,14 @@ public class Upgrade : MonoBehaviour
                         firstUpgradeWaveCleared = true;
 
                         if (sizeCost < 1000)
-                            sizeCostVisual.text = sizeCost.ToString();
+                            sizeCostVisual.text = "$" + sizeCost.ToString();
                         else if (sizeCost < 1000000)
-                            sizeCostVisual.text = (sizeCost * 1f / 1000).ToString("n2") + "K";
+                            sizeCostVisual.text = "$" + (sizeCost * 1f / 1000).ToString("n2") + "K";
                         else
-                            sizeCostVisual.text = (sizeCost * 1f / 1000000).ToString("n2") + "M";
+                            sizeCostVisual.text = "$" + (sizeCost * 1f / 1000000).ToString("n2") + "M";
 
                         if (capacityCost < 1000)
-                            capacityCostVisual.text = capacityCost.ToString();
+                            capacityCostVisual.text = "$" + capacityCost.ToString();
                         else if (capacityCost < 1000000)
                             capacityCostVisual.text = (capacityCost * 1f / 1000).ToString("n2") + "K";
                         else
@@ -156,11 +156,11 @@ public class Upgrade : MonoBehaviour
                     sizeCost = (int)(sizeCost * costConstantModifierWave2);
 
                 if (sizeCost < 1000)
-                    sizeCostVisual.text = sizeCost.ToString();
+                    sizeCostVisual.text = "$" + sizeCost.ToString();
                 else if (sizeCost < 1000000)
-                    sizeCostVisual.text = (sizeCost * 1f / 1000).ToString("n2") + "K";
+                    sizeCostVisual.text = "$" + (sizeCost * 1f / 1000).ToString("n2") + "K";
                 else
-                    sizeCostVisual.text = (sizeCost * 1f / 1000000).ToString("n2") + "M";
+                    sizeCostVisual.text = "$" + (sizeCost * 1f / 1000000).ToString("n2") + "M";
 
                 gameManager.LevelUpSize();
                 if (gameManager.GetSizeLevel() == 4)
@@ -170,18 +170,18 @@ public class Upgrade : MonoBehaviour
                         firstUpgradeWaveCleared = true;
 
                         if (speedCost < 1000)
-                            speedCostVisual.text = speedCost.ToString();
+                            speedCostVisual.text = "$" + speedCost.ToString();
                         else if (speedCost < 1000000)
-                            speedCostVisual.text = (speedCost * 1f / 1000).ToString("n2") + "K";
+                            speedCostVisual.text = "$" + (speedCost * 1f / 1000).ToString("n2") + "K";
                         else
-                            speedCostVisual.text = (speedCost * 1f / 1000000).ToString("n2") + "M";
+                            speedCostVisual.text = "$" + (speedCost * 1f / 1000000).ToString("n2") + "M";
 
                         if (capacityCost < 1000)
-                            capacityCostVisual.text = capacityCost.ToString();
+                            capacityCostVisual.text = "$" + capacityCost.ToString();
                         else if (capacityCost < 1000000)
-                            capacityCostVisual.text = (capacityCost * 1f / 1000).ToString("n2") + "K";
+                            capacityCostVisual.text = "$" + (capacityCost * 1f / 1000).ToString("n2") + "K";
                         else
-                            capacityCostVisual.text = (capacityCost * 1f / 1000000).ToString("n2") + "M";
+                            capacityCostVisual.text = "$" + (capacityCost * 1f / 1000000).ToString("n2") + "M";
                     }
                     else
                         sizeCostVisual.text = "MAX";
@@ -208,11 +208,11 @@ public class Upgrade : MonoBehaviour
                     capacityCost = (int)(capacityCost * costConstantModifierWave2);
 
                 if (capacityCost < 1000)
-                    capacityCostVisual.text = capacityCost.ToString();
+                    capacityCostVisual.text = "$" + capacityCost.ToString();
                 else if (capacityCost < 1000000)
-                    capacityCostVisual.text = (capacityCost * 1f / 1000).ToString("n2") + "K";
+                    capacityCostVisual.text = "$" + (capacityCost * 1f / 1000).ToString("n2") + "K";
                 else
-                    capacityCostVisual.text = (capacityCost * 1f / 1000000).ToString("n2") + "M";
+                    capacityCostVisual.text = "$" + (capacityCost * 1f / 1000000).ToString("n2") + "M";
 
                 gameManager.LevelUpCapacity();
                 if (gameManager.GetCapacityLevel() == 4)
@@ -222,18 +222,18 @@ public class Upgrade : MonoBehaviour
                         firstUpgradeWaveCleared = true;
 
                         if (speedCost < 1000)
-                            speedCostVisual.text = speedCost.ToString();
+                            speedCostVisual.text = "$" + speedCost.ToString();
                         else if (speedCost < 1000000)
-                            speedCostVisual.text = (speedCost * 1f / 1000).ToString("n2") + "K";
+                            speedCostVisual.text = "$" + (speedCost * 1f / 1000).ToString("n2") + "K";
                         else
-                            speedCostVisual.text = (speedCost * 1f / 1000000).ToString("n2") + "M";
+                            speedCostVisual.text = "$" + (speedCost * 1f / 1000000).ToString("n2") + "M";
 
                         if (sizeCost < 1000)
-                            sizeCostVisual.text = sizeCost.ToString();
+                            sizeCostVisual.text = "$" + sizeCost.ToString();
                         else if (sizeCost < 1000000)
-                            sizeCostVisual.text = (sizeCost * 1f / 1000).ToString("n2") + "K";
+                            sizeCostVisual.text = "$" + (sizeCost * 1f / 1000).ToString("n2") + "K";
                         else
-                            sizeCostVisual.text = (sizeCost * 1f / 1000000).ToString("n2") + "M";
+                            sizeCostVisual.text = "$" + (sizeCost * 1f / 1000000).ToString("n2") + "M";
                     }
                     else
                         capacityCostVisual.text = "MAX";

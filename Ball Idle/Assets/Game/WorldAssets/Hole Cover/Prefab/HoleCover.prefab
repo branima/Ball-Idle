@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4627607867276231357}
   - component: {fileID: 4627607867276231356}
   - component: {fileID: 4627607867276231235}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: HoleCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
