@@ -76,7 +76,7 @@ public class Upgrade : MonoBehaviour
         {
             upgradeAnimator.SetTrigger("slideIn");
             upgradeUIEnabled = true;
-        }
+        }                   
     }
 
     void OnTriggerExit(Collider other)
