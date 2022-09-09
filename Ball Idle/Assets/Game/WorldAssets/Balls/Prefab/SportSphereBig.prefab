@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1dc2155d44f38045aeb5b0a88193a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardMoney: 0
+  rewardMoney: 400
 --- !u!82 &-4639454313629901905
 AudioSource:
   m_ObjectHideFlags: 0

@@ -23,6 +23,8 @@ public class Upgrade : MonoBehaviour
     public float costConstantModifierWave2;
     bool firstUpgradeWaveCleared;
 
+    public float finalMaxLevel = 7;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,17 +54,17 @@ public class Upgrade : MonoBehaviour
         int sizeLvl = gameManager.GetSizeLevel();
         int capacityLvl = gameManager.GetCapacityLevel();
 
-        if (money >= speedCost && !(speedLvl == 4 && !firstUpgradeWaveCleared) && speedLvl != 7)
+        if (money >= speedCost && !(speedLvl == 4 && !firstUpgradeWaveCleared) && speedLvl != finalMaxLevel)
             gameManager.SetGrayscaleSpeed(false);
         else
             gameManager.SetGrayscaleSpeed(true);
 
-        if (money >= capacityCost && !(capacityLvl == 4 && !firstUpgradeWaveCleared) && capacityLvl != 7)
+        if (money >= capacityCost && !(capacityLvl == 4 && !firstUpgradeWaveCleared) && capacityLvl != finalMaxLevel)
             gameManager.SetGrayscaleCapacity(false);
         else
             gameManager.SetGrayscaleCapacity(true);
 
-        if (money >= sizeCost && !(sizeLvl == 4 && !firstUpgradeWaveCleared) && sizeLvl != 7)
+        if (money >= sizeCost && !(sizeLvl == 4 && !firstUpgradeWaveCleared) && sizeLvl != finalMaxLevel)
             gameManager.SetGrayscaleSize(false);
         else
             gameManager.SetGrayscaleSize(true);
@@ -89,9 +91,9 @@ public class Upgrade : MonoBehaviour
     public void UpgradeSpeed()
     {
         int money = gameManager.GetMoney();
-        if (money >= speedCost && gameManager.GetSpeedLevel() < 7)
+        if (money >= speedCost && gameManager.GetSpeedLevel() < finalMaxLevel)
         {
-            if ((!firstUpgradeWaveCleared && gameManager.GetSpeedLevel() < 4) || (firstUpgradeWaveCleared && gameManager.GetSpeedLevel() < 7))
+            if ((!firstUpgradeWaveCleared && gameManager.GetSpeedLevel() < 4) || (firstUpgradeWaveCleared && gameManager.GetSpeedLevel() < finalMaxLevel))
             {
                 gameManager.AddMoney(-speedCost);
                 money -= speedCost;
@@ -132,7 +134,7 @@ public class Upgrade : MonoBehaviour
                     else
                         speedCostVisual.text = "MAX";
                 }
-                else if (gameManager.GetSpeedLevel() == 7)
+                else if (gameManager.GetSpeedLevel() == finalMaxLevel)
                     speedCostVisual.text = "MAX";
             }
         }
@@ -141,9 +143,9 @@ public class Upgrade : MonoBehaviour
     public void UpgradeSize()
     {
         int money = gameManager.GetMoney();
-        if (money >= sizeCost && gameManager.GetSizeLevel() < 7)
+        if (money >= sizeCost && gameManager.GetSizeLevel() < finalMaxLevel)
         {
-            if ((!firstUpgradeWaveCleared && gameManager.GetSizeLevel() < 4) || (firstUpgradeWaveCleared && gameManager.GetSizeLevel() < 7))
+            if ((!firstUpgradeWaveCleared && gameManager.GetSizeLevel() < 4) || (firstUpgradeWaveCleared && gameManager.GetSizeLevel() < finalMaxLevel))
             {
                 gameManager.AddMoney(-sizeCost);
                 money -= sizeCost;
@@ -184,7 +186,7 @@ public class Upgrade : MonoBehaviour
                     else
                         sizeCostVisual.text = "MAX";
                 }
-                else if (gameManager.GetSizeLevel() == 7)
+                else if (gameManager.GetSizeLevel() == finalMaxLevel)
                     sizeCostVisual.text = "MAX";
             }
         }
@@ -193,9 +195,9 @@ public class Upgrade : MonoBehaviour
     public void UpgradeCapacity()
     {
         int money = gameManager.GetMoney();
-        if (money >= capacityCost && gameManager.GetCapacityLevel() < 7)
+        if (money >= capacityCost && gameManager.GetCapacityLevel() < finalMaxLevel)
         {
-            if ((!firstUpgradeWaveCleared && gameManager.GetCapacityLevel() < 4) || (firstUpgradeWaveCleared && gameManager.GetCapacityLevel() < 7))
+            if ((!firstUpgradeWaveCleared && gameManager.GetCapacityLevel() < 4) || (firstUpgradeWaveCleared && gameManager.GetCapacityLevel() < finalMaxLevel))
             {
                 gameManager.AddMoney(-capacityCost);
                 money -= capacityCost;
@@ -236,7 +238,7 @@ public class Upgrade : MonoBehaviour
                     else
                         capacityCostVisual.text = "MAX";
                 }
-                else if (gameManager.GetCapacityLevel() == 7)
+                else if (gameManager.GetCapacityLevel() == finalMaxLevel)
                     capacityCostVisual.text = "MAX";
             }
         }

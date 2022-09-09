@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject settingsMenu;
     public AudioManager audioManager;
 
-    public int numberOfLevels = 7;
+    public static int numberOfLevels = 8;
     int levelNumber;
     public TextMeshProUGUI levelNumberText;
 
@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelNumber = SceneManager.GetActiveScene().buildIndex + 1;
+        SaveSystem.SaveGame(new SaveData(SceneManager.GetActiveScene().buildIndex));
+        levelNumber = SceneManager.GetActiveScene().buildIndex;
 
         money = 0;
         moneyCountVisual.text = money.ToString();
@@ -202,8 +203,7 @@ public class GameManager : MonoBehaviour
 
     public void EnableNextLevelPanel() => nextLevelPanel.SetActive(true);
     public void NextLevel() => LoadLevel((SceneManager.GetActiveScene().buildIndex + 1) % numberOfLevels);
-    void LoadLevel(int levelIndex) => SceneManager.LoadScene(levelIndex);
-
+    void LoadLevel(int levelIndex) => SceneManager.LoadScene(Mathf.Max(1, levelIndex));
 
     public void SetGrayscaleSpeed(bool x)
     {

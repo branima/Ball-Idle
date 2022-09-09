@@ -47822,6 +47822,10 @@ PrefabInstance:
       propertyPath: suckingEffect
       value: 
       objectReference: {fileID: 1157149737}
+    - target: {fileID: 6454631451278404438, guid: 089d0f4e71b6bc24c983c5752b314ff9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 089d0f4e71b6bc24c983c5752b314ff9, type: 3}
 --- !u!1 &1157149737 stripped
@@ -52061,6 +52065,10 @@ PrefabInstance:
     - target: {fileID: 4105986660116323041, guid: 0806c9015fba747499b4dec1a6554c41, type: 3}
       propertyPath: m_Name
       value: 'LevelUpParticles '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105986660116323041, guid: 0806c9015fba747499b4dec1a6554c41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4105986660116323046, guid: 0806c9015fba747499b4dec1a6554c41, type: 3}
       propertyPath: m_RootOrder
@@ -56686,7 +56694,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsMenu: {fileID: 2058732810}
   audioManager: {fileID: 1353570097}
-  numberOfLevels: 7
   levelNumberText: {fileID: 2058732801}
   player: {fileID: 84309111}
   cameraFollowScript: {fileID: 1687258583}
@@ -89262,6 +89269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1099426782314170238, guid: 60bcf126f5f573d41855739da29a1e03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -108.30005
+      objectReference: {fileID: 0}
     - target: {fileID: 1376216831837337915, guid: 60bcf126f5f573d41855739da29a1e03, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -89324,7 +89335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8365002328222473747, guid: 60bcf126f5f573d41855739da29a1e03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8365002328222473747, guid: 60bcf126f5f573d41855739da29a1e03, type: 3}
       propertyPath: m_LocalPosition.y

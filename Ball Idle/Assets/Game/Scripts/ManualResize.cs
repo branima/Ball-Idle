@@ -12,7 +12,6 @@ public class ManualResize : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log("BEN");
             gameManager.LevelUpSize();
             gameManager.LevelUpCapacity(1.3f);
             gameManager.LevelUpSpeed(1.1f);

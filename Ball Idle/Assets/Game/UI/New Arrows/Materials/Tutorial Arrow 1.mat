@@ -45,5 +45,5 @@ Material:
     - Color_227ec37a5b764885b82b26a000ac65ba: {r: 1, g: 1, b: 1, a: 1}
     - Color_4614edc51b2c479b85f5dc48b22771fc: {r: 0.049001455, g: 1, b: 0, a: 0}
     - Vector2_b4d6e8143e1c40b0becb14eb2aad2683: {r: 1, g: 30, b: 0, a: 0}
-    - _Tiles: {r: 1, g: 2.9086792, b: 0, a: 0}
+    - _Tiles: {r: 1, g: 13.82458, b: 0, a: 0}
   m_BuildTextureStacks: []
