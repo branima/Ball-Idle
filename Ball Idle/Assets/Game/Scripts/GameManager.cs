@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
     {
         ActivateLevelUpParticles();
         capacityLevel++;
-        playerMovementScript.maxStackSize += 6;
+        playerMovementScript.maxStackSize = (int)(playerMovementScript.maxStackSize * 1.25f);
         capacityLevelText.text = capacityLevel.ToString();
     }
 

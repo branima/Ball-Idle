@@ -1726,7 +1726,7 @@ PrefabInstance:
       objectReference: {fileID: 1353570095}
     - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: maxStackSize
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: joystickScript
@@ -1786,7 +1786,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fd56343871254784991f410043c5026f, type: 2}
     - target: {fileID: 7599620608832438971, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: m_Radius
-      value: 3.25
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 7599620608832438971, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: m_Enabled
@@ -36354,7 +36354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsMenu: {fileID: 2058732811}
   audioManager: {fileID: 1353570097}
-  numberOfLevels: 7
   levelNumberText: {fileID: 2058732801}
   player: {fileID: 84309111}
   cameraFollowScript: {fileID: 1687258583}

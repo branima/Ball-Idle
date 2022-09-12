@@ -20,6 +20,8 @@ public class BallShoot : MonoBehaviour
     Rigidbody ballRB;
     public float torqueModifier;
 
+    public Transform sparksParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +49,12 @@ public class BallShoot : MonoBehaviour
             ballRB.velocity = Vector3.zero;
             ballRB.constraints = RigidbodyConstraints.FreezePosition;
             charge = true;
+
+            foreach (Transform item in sparksParticles)
+                item.GetComponent<ParticleSystem>().Play();
             //ballRB.AddForce((transform.parent.forward * 3f + Vector3.up) * shootForceModifier, ForceMode.VelocityChange);
-            Invoke("LaunchBall", 1f);
+            //Invoke("LaunchBall", 5f); 
+            Invoke("LaunchBall", 1.5f);  
             //Invoke("AddDrag", 0.75f);
         }
     }
@@ -84,6 +90,8 @@ public class BallShoot : MonoBehaviour
 
     void LaunchBall()
     {
+        foreach (Transform item in sparksParticles)
+            item.GetComponent<ParticleSystem>().Stop();
         charge = false;
         ballRB.constraints = RigidbodyConstraints.None;
         ballRB.AddForce((transform.parent.forward * 3f + Vector3.up) * shootForceModifier, ForceMode.VelocityChange);

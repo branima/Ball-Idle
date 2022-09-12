@@ -46220,6 +46220,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1353570095}
     - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
+      propertyPath: maxStackSize
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599620608832438945, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: joystickScript
       value: 
       objectReference: {fileID: 1583182602}
@@ -46270,6 +46274,10 @@ PrefabInstance:
     - target: {fileID: 7599620608832438948, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599620608832438971, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
+      propertyPath: m_Radius
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 7599620609048576930, guid: ad39de4930356814fa8e7322848bdfca, type: 3}
       propertyPath: target
