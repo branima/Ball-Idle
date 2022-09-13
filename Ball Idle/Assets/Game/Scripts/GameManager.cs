@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 
     private void _LevelUpSize(float modifier)
     {
-        Debug.Log(modifier);
+        //Debug.Log(modifier);
         ActivateLevelUpParticles();
         sizeLevel++;
         lerpTime = 0f;
