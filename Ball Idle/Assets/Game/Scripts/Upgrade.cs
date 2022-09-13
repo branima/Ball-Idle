@@ -5,7 +5,6 @@ using TMPro;
 
 public class Upgrade : MonoBehaviour
 {
-
     public GameManager gameManager;
 
     public int speedCost;
@@ -24,6 +23,8 @@ public class Upgrade : MonoBehaviour
     bool firstUpgradeWaveCleared;
 
     public float finalMaxLevel = 7;
+
+    public float sizeModifier = 1.12f;
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +77,7 @@ public class Upgrade : MonoBehaviour
         {
             upgradeAnimator.SetTrigger("slideIn");
             upgradeUIEnabled = true;
-        }                   
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -162,7 +163,7 @@ public class Upgrade : MonoBehaviour
                 else
                     sizeCostVisual.text = "$" + (sizeCost * 1f / 1000000).ToString("n2") + "M";
 
-                gameManager.LevelUpSize();
+                gameManager.LevelUpSize(sizeModifier);
                 if (gameManager.GetSizeLevel() == 4)
                 {
                     if (gameManager.GetCapacityLevel() == 4 && gameManager.GetSpeedLevel() == 4)

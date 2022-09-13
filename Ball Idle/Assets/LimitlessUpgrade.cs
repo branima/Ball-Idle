@@ -24,6 +24,8 @@ public class LimitlessUpgrade : MonoBehaviour
 
     public float finalMaxLevel = 7;
 
+    public float sizeModifier = 1.12f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,7 +116,7 @@ public class LimitlessUpgrade : MonoBehaviour
             else
                 sizeCostVisual.text = "$" + (sizeCost * 1f / 1000000).ToString("n2") + "M";
 
-            gameManager.LevelUpSize();
+            gameManager.LevelUpSize(sizeModifier);
         }
     }
 

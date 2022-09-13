@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     void ActivateLevelUpParticles()
     {
-        levelUpParticlesObject.position = player.position;
+        levelUpParticlesObject.position = player.position + Vector3.up * player.localScale.x;
         foreach (ParticleSystem item in levelUpParticles)
             item.Play();
     }
@@ -125,12 +125,18 @@ public class GameManager : MonoBehaviour
         speedLevelText.text = speedLevel.ToString();
     }
 
-    public void LevelUpSize()
+    private void _LevelUpSize(float modifier)
     {
+        Debug.Log(modifier);
         ActivateLevelUpParticles();
         sizeLevel++;
         lerpTime = 0f;
-        newSize = player.transform.localScale * 1.12f;
+        newSize = player.transform.localScale * modifier;
+        foreach (ParticleSystem item in levelUpParticles)
+        {
+            ParticleSystemRenderer psr = item.GetComponent<ParticleSystemRenderer>();
+            psr.minParticleSize = psr.minParticleSize * 1.12f;
+        }
         playerRB.mass *= 3.69f;
         playerRB.constraints = RigidbodyConstraints.None;
         sizeLevelText.text = sizeLevel.ToString();
@@ -155,6 +161,9 @@ public class GameManager : MonoBehaviour
             collider.radius = collider.radius * 1.1f;
         }
     }
+
+    public void LevelUpSize(float modifier) => _LevelUpSize(modifier);
+    public void LevelUpSize() => LevelUpSize(1f);
 
     public void LevelUpCapacity()
     {
