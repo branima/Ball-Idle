@@ -322,4 +322,4 @@ MonoBehaviour:
   costConstantModifierWave1: 0
   costConstantModifierWave2: 0
   finalMaxLevel: 7
-  sizeModifier: 0
+  sizeModifier: 1.12
