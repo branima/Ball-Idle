@@ -191,7 +191,6 @@ public class CLIKConfiguration : EditorWindow
                 return;
             }
 
-            //RemoveOldFilesIfExists();
             if (!UnzipAnLoadConfiguration())
             {
                 return;
@@ -1418,46 +1417,6 @@ public class CLIKConfiguration : EditorWindow
     private GUIStyle _greenIndicator = new GUIStyle();
     private GUIStyle _minusIcon = new GUIStyle();
 
-    private static String[] directoriesToRemove =
-    {
-        "Assets/Plugins/Android", 
-        "Assets/Tabtale/TTPlugins/CLIK/gradletemplates"
-    };
-    private static String[] filesToRemove =
-    {
-        "Assets/Plugins/Android.meta",
-        "Assets/Tabtale/TTPlugins/CLIK/gradletemplates.meta",
-        "Assets/Tabtale/TTPlugins/CLIK/Editor/TTPGradlePreProcess.cs", 
-        "Assets/Tabtale/TTPlugins/CLIK/Editor/TTPGradlePreProcess.cs.meta"
-    };
-
-    private static void RemoveOldFilesIfExists()
-    {
-        foreach (var directoryName in directoriesToRemove)
-        {
-            if (Directory.Exists(directoryName))
-            {
-                DirectoryInfo di = new DirectoryInfo(directoryName);
-                foreach (FileInfo file in di.GetFiles())
-                {
-                    file.Delete();
-                }
-                foreach (DirectoryInfo dir in di.GetDirectories())
-                {
-                    dir.Delete(true);
-                }
-                Directory.Delete(directoryName);
-            }
-        }
-        foreach (var fileName in filesToRemove)
-        {
-            if (File.Exists(fileName))
-            {
-                File.Delete(fileName);
-            }
-        }
-    }
-    
     private static bool UnzipAnLoadConfiguration()
     {
         var zipPath = EditorUtility.OpenFilePanel("Choose Configuration Zip", "", "zip");
@@ -1950,7 +1909,7 @@ public class CLIKConfiguration : EditorWindow
             var ttpVersion = File.ReadAllText("Assets/Tabtale/TTPlugins/version.txt");
             var ttpVersionGradleProperty = "ttp_version=" + ttpVersion ?? "null";
             var gradleClassPath = "3.4.3";
-#if UNITY_2021_3_OR_NEWER
+#if UNITY_2020_3_OR_NEWER
             gradleClassPath = "4.0.1";
 #elif UNITY_2020_1_OR_NEWER
             gradleClassPath = "3.6.4";
@@ -1995,8 +1954,60 @@ public class CLIKConfiguration : EditorWindow
             gradleLines.Insert(indexOfGradleDependencies+1,androidConfiguration);
             File.WriteAllLines(buildGradlePath, gradleLines);
             
+#if UNITY_2020_3
+            if (PlayerSettings.Android.targetSdkVersion > AndroidSdkVersions.AndroidApiLevel30)
+            {
+                UpdateGradleForAndroidTarget31(path);
+            }
+#endif
+            
             string pathToModuleAndroidManifest = TTPUtils.CombinePaths(new List<string> {path, "src", "main", "AndroidManifest.xml"});
             FixManifest(pathToModuleAndroidManifest);
+        }
+
+        private static void ReplaceBuildToolsVersion(string buildGradlePath)
+        {
+            Debug.Log("OnPostGenerateGradleAndroidProject::ReplaceBuildToolsVersion:buildGradlePath=" + buildGradlePath);
+            if (!File.Exists(buildGradlePath))
+            {
+                Debug.Log("OnPostGenerateGradleAndroidProject::ReplaceBuildToolsVersion:gradle doesn't exist");
+                return;
+            }
+
+            Boolean rewriteFile = false;
+            var gradleLines = File.ReadLines(buildGradlePath).ToList();
+            for (int i = 0; i < gradleLines.Count; i++)
+            {
+                string currentLine = gradleLines[i];
+                if (currentLine.Contains("buildToolsVersion"))
+                {
+                    Debug.Log("OnPostGenerateGradleAndroidProject::ReplaceBuildToolsVersion:" + currentLine);
+                    if (!currentLine.Contains("30.0.3"))
+                    {
+                        currentLine = "buildToolsVersion '30.0.3'";
+                        gradleLines[i] = currentLine;
+                        rewriteFile = true;    
+                    }
+                    break;
+                }
+            }
+
+            if (rewriteFile)
+            {
+                File.WriteAllLines(buildGradlePath, gradleLines);
+                Debug.Log("OnPostGenerateGradleAndroidProject::ReplaceBuildToolsVersion:buildToolsVersion has fixed");
+            }
+        }
+        
+        private static void UpdateGradleForAndroidTarget31(string path)
+        {
+            Debug.Log("OnPostGenerateGradleAndroidProject::UpdateGradleForAndroidTarget31:path=" + path);
+            var buildGradlePath = Path.Combine(path, "build.gradle");
+            ReplaceBuildToolsVersion(buildGradlePath);
+            buildGradlePath = Path.Combine(path, Path.Combine("AndroidConfigurations.androidlib", "build.gradle"));
+            ReplaceBuildToolsVersion(buildGradlePath);
+            buildGradlePath = Path.Combine(path, Path.Combine("..", Path.Combine("launcher", "build.gradle")));
+            ReplaceBuildToolsVersion(buildGradlePath);
         }
 
         private static void FixManifest(string pathToManifest)
